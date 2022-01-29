@@ -1,4 +1,4 @@
-# AWS S3 Bucket with replica Terraform module
+# AWS Cloudwatch alarms Terraform module
 
 Terraform module which creates an AWS Cloudwatch alarms for EC2 on AWS.
 
