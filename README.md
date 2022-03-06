@@ -27,6 +27,19 @@ module "cloudwatch_alarms" {
 }
 ```
 
+## Issue
+```
+Error: Invalid count argument
+
+  on .terraform/modules/cloudwatch_alarms_all_nodes/main.tf line 19, in resource "aws_cloudwatch_metric_alarm" "ec2_cpu_utilization":
+  19:   count                     = var.cloudwatch_cpu_utilization_enabled && var.cloudwatch_sns_topic_arn != null ? length(var.ec2_instances_list) : 0
+
+The "count" value depends on resource attributes that cannot be determined until apply, so Terraform cannot predict how many instances will be created. To work around this, use the -target argument to first apply only the resources that the count depends on.
+```
+
+Workaround:
+Create SNS Topic first and then provision Cloudwatch alarms
+
 ## Requirements
 
 | Name | Version |
